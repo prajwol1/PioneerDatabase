@@ -7,3 +7,5 @@ c:\users\prajwol\documents\visual studio 2017\Projects\WindowsFormsApp3\WindowsF
 c:\users\prajwol\documents\visual studio 2017\Projects\WindowsFormsApp3\WindowsFormsApp3\bin\Debug\WindowsFormsApp3.pdb
 c:\users\prajwol\documents\visual studio 2017\Projects\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.exe
 c:\users\prajwol\documents\visual studio 2017\Projects\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.pdb
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\WindowsFormsApp3\bin\Debug\PioneerEmployeeDatabase.DAL.dll
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\WindowsFormsApp3\bin\Debug\PioneerEmployeeDatabase.DAL.pdb

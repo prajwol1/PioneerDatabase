@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using PioneerEmployeeDatabase.DAL;
 
 namespace WindowsFormsApp3
 {
@@ -29,6 +30,7 @@ namespace WindowsFormsApp3
                 Employee_CompanyComboBox.Items.Add(Dr[0]);
                 Employee_EducationComboBox.Items.Add(Dr[0]);
                 Employee_TechnicalComboBox.Items.Add(Dr[0]);
+                DashBoardComboBox.Items.Add(Dr[0]);
 
             }
             mysqlconnection.Close();
@@ -68,7 +70,7 @@ namespace WindowsFormsApp3
         {
            try
            {
-                
+
                 string FirstName = FirstNameTextBox.Text;
                 string LastName = LastNameTextBox.Text;
                 string EmailId = EmailIdTextBox.Text;
@@ -80,27 +82,35 @@ namespace WindowsFormsApp3
                 string HomeCountry = HomeCountryTextBox.Text;
                 int ZipCode = Convert.ToInt32(ZipCodeTextBox.Text);
 
-                //Creating Sql Database Connection
-                SqlConnection mysqlconnection = new SqlConnection();
-                mysqlconnection.ConnectionString = "Data Source = PRAJWOLPC;" +
-                             "database = Pioneer_Employee_Database1;Integrated security = SSPI";
+                // //Creating Sql Database Connection
+                // SqlConnection mysqlconnection = new SqlConnection();
+                // mysqlconnection.ConnectionString = "Data Source = PRAJWOLPC;" +
+                //              "database = Pioneer_Employee_Database1;Integrated security = SSPI";
 
-                      
-                SqlCommand cmd = new SqlCommand("INSERT INTO EmployeeDetail VALUES(" + 
-                             "'" + FirstName + "','" + LastName + "','" + EmailId + "'," +
-                             MobileNumber + "," + AlternateMobileNumber + ",'" + Address1 + "','" + Address2 + 
-                             "','" + CurrentCountry + "','" + HomeCountry + "'," + ZipCode +")", mysqlconnection);
-                //Opening Sql Database Connection
-                mysqlconnection.Open();
-               SqlDataReader Dr = cmd.ExecuteReader();
 
-                mysqlconnection.Close();
-                Dr.Close();
-                MessageBox.Show("Your Datas has been saved into the database");
+                // SqlCommand cmd = new SqlCommand("INSERT INTO EmployeeDetail VALUES(" + 
+                //              "'" + FirstName + "','" + LastName + "','" + EmailId + "'," +
+                //              MobileNumber + "," + AlternateMobileNumber + ",'" + Address1 + "','" + Address2 + 
+                //              "','" + CurrentCountry + "','" + HomeCountry + "'," + ZipCode +")", mysqlconnection);
+                // //Opening Sql Database Connection
+                // mysqlconnection.Open();
+                //SqlDataReader Dr = cmd.ExecuteReader();
+
+                // mysqlconnection.Close();
+                // Dr.Close();
+                // MessageBox.Show("Your Datas has been saved into the database");
+
+                EmployeeDataAccessLayer EmployeeDAL = new EmployeeDataAccessLayer();
+
+                int NoOfRowsAffected = EmployeeDAL.SaveEmployeeData(FirstName, LastName, EmailId, MobileNumber, AlternateMobileNumber, Address1, Address2, CurrentCountry, HomeCountry, ZipCode);
+                if (NoOfRowsAffected > 0)
+                    MessageBox.Show("Succesfully saved");
+                else
+                    MessageBox.Show("Could Not Save");
             }
             catch (Exception exception)
             {
-                MessageBox.Show("EXCEPTION OCCURED. PLEASE CONTACT ADMINISTRATOR");
+                MessageBox.Show("EXCEPTION OCCURED. PLEASE CONTACT ADMINISTRATOR",exception.Message);
             }
             finally
             {
@@ -118,16 +128,7 @@ namespace WindowsFormsApp3
 
         private void EmployeeDetailsClearButton_Click(object sender, EventArgs e)
         {
-            FirstNameTextBox.Clear();
-            LastNameTextBox.Clear();
-            EmailIdTextBox.Clear();
-            MobileNumberTextBox.Clear();
-            AlternateMobileNumberTextBox.Clear();
-            Address1TextBox.Clear();
-            Address2TextBox.Clear();
-            CurrentCountryTextBox.Clear();
-            HomeCountryTextBox.Clear();
-            ZipCodeTextBox.Clear();
+            ClearButton(EmployeeDetailTab.Controls);
         }
 
         private void EmployeeDetailTab_Click(object sender, EventArgs e)
@@ -147,7 +148,7 @@ namespace WindowsFormsApp3
             BindingSource source = new BindingSource();
             source.DataSource = Dr;
 
-            dataGridView1.DataSource = source;
+            //dataGridView1.DataSource = source;
             mysqlconnection.Close();
 
 
@@ -162,20 +163,16 @@ namespace WindowsFormsApp3
             string Roles = RolesTextBox.Text;
             int EmployeeIdProject = Convert.ToInt32(Employee_ProjectComboBox.Text);
 
-            SqlConnection mysqlconnection = new SqlConnection();
-            mysqlconnection.ConnectionString = "Data Source = PRAJWOLPC;" +
-                         "database = Pioneer_Employee_Database1;Integrated security = SSPI";
+            EmployeeDataAccessLayer EmployeeDAL = new EmployeeDataAccessLayer();
+
+            int NoOfRowsAffected = EmployeeDAL.SaveProjectData(ProjectName, ClientName, Location, Roles,EmployeeIdProject);
+            if (NoOfRowsAffected > 0)
+                MessageBox.Show("Succesfully saved");
+            else
+                MessageBox.Show("Could Not Save");
 
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO ProjectDetail VALUES(" +
-                         "'" + ProjectName + "','" + ClientName + "','" + Location + "','" + Roles + "'," + EmployeeIdProject + ")", mysqlconnection);
-            //Opening Sql Database Connection
-            mysqlconnection.Open();
-            SqlDataReader Dr = cmd.ExecuteReader();
 
-            mysqlconnection.Close();
-            Dr.Close();
-             
             MessageBox.Show("Your Datas has been saved into the Project database");
             
         }
@@ -222,38 +219,66 @@ namespace WindowsFormsApp3
 
         private void ShowDetailsButton_Click(object sender, EventArgs e)
         {
-            int EmployeeId = Convert.ToInt32(DashBoardEmployeeIdTextBox.Text);
+            int EmployeeId = Convert.ToInt32(DashBoardComboBox.Text);
 
             SqlConnection mysqlconnection = new SqlConnection();
             mysqlconnection.ConnectionString = "Data Source = PRAJWOLPC;database = Pioneer_Employee_Database1;Integrated security = SSPI";
 
-            SqlCommand cmdE = new SqlCommand("SELECT * FROM EmployeeDetail WHERE EmployeeId = " + EmployeeId , mysqlconnection);
-            SqlCommand cmdC= new SqlCommand("SELECT * FROM CompanyDetail WHERE EmployeeId = " + EmployeeId, mysqlconnection);
-            SqlCommand cmdP = new SqlCommand("SELECT * FROM ProjectDetail WHERE EmployeeId = " + EmployeeId, mysqlconnection);
-            mysqlconnection.Open();
+           
+                SqlCommand cmdE = new SqlCommand("SELECT * FROM EmployeeDetail WHERE EmployeeId = " + EmployeeId, mysqlconnection);
+                SqlCommand cmdC = new SqlCommand("SELECT * FROM CompanyDetail WHERE EmployeeId = " + EmployeeId, mysqlconnection);
+                SqlCommand cmdP = new SqlCommand("SELECT * FROM ProjectDetail WHERE EmployeeId = " + EmployeeId, mysqlconnection);
 
-            SqlDataReader DrE = cmdE.ExecuteReader();
-            BindingSource sourceE = new BindingSource();
-            sourceE.DataSource = DrE;
-            DrE.Close();
-            
-            SqlDataReader DrC = cmdC.ExecuteReader();
-            BindingSource sourceC = new BindingSource();
-            sourceC.DataSource = DrC;
+                mysqlconnection.Open();
+
+                SqlDataReader DrE = cmdE.ExecuteReader();
+                BindingSource sourceE = new BindingSource();
+                sourceE.DataSource = DrE;
+                EmployeeDataGridView.DataSource = sourceE;
+                DrE.Close();
+
+                
+                
+
+                //int check = cmdC.ExecuteNonQuery();
+           
+                 SqlDataReader DrC = cmdC.ExecuteReader();
+                if (DrC.HasRows ==true)
+                {
+                    
+                    BindingSource sourceC = new BindingSource();
+                    sourceC.DataSource = DrC;
+                    
+                    CompanyDataGridView.DataSource = sourceC;
+                }
+                else
+                    MessageBox.Show("No data to show for Company");
             DrC.Close();
 
-            
+
+
+
+            //int check2 = cmdC.ExecuteNonQuery();
             SqlDataReader DrP = cmdP.ExecuteReader();
-            BindingSource sourceP = new BindingSource();
-            sourceP.DataSource = DrP;
+
+                if (DrP.HasRows == true)
+                {
+                
+                BindingSource sourceP = new BindingSource();
+                    sourceP.DataSource = DrP;
+                    ProjectDataGridView.DataSource = sourceP;
+                }
+                else
+                    MessageBox.Show("No data to show for Project");
             DrP.Close();
 
 
-            EmployeeDataGridView.DataSource = sourceE;
-            CompanyDataGridView.DataSource = sourceC;
-            ProjectDataGridView.DataSource = sourceP;
-            
+
+            //ProjectDataGridView.DataSource = sourceP;
+
             mysqlconnection.Close();
+
+           
 
         }
 
@@ -268,20 +293,17 @@ namespace WindowsFormsApp3
             long EmployerContactNumber = Convert.ToInt64(EmployerContactNumberTextBox.Text);
             string EmployerAddress = EmployerLocationTextBox.Text;
             string Website = EmployerWebsiteTextBox.Text;
-            int EmployeeId1 = Convert.ToInt32(Employee_CompanyComboBox.Text);
+            int EmployeeId = Convert.ToInt32(Employee_CompanyComboBox.Text);
 
-            SqlConnection mysqlconnection = new SqlConnection();
-            mysqlconnection.ConnectionString = "Data Source = PRAJWOLPC;" +
-                         "database = Pioneer_Employee_Database1;Integrated security = SSPI";
+            EmployeeDataAccessLayer EmployeeDAL = new EmployeeDataAccessLayer();
+
+            int NoOfRowsAffected = EmployeeDAL.SaveCompanyData(EmployerName, EmployerContactNumber, EmployerAddress, Website, EmployeeId);
+            if (NoOfRowsAffected > 0)
+                MessageBox.Show("Succesfully saved");
+            else
+                MessageBox.Show("Could Not Save");
 
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO CompanyDetail VALUES('" + EmployerName + "'," + EmployerContactNumber + ",'" +EmployerAddress + "','"+Website+"'," +EmployeeId1 + ")", mysqlconnection);
-            //Opening Sql Database Connection
-            mysqlconnection.Open();
-            SqlDataReader Dr = cmd.ExecuteReader();
-
-            mysqlconnection.Close();
-            Dr.Close();
 
             MessageBox.Show("Your Data has been saved into the Company Detail database");
 
@@ -298,20 +320,17 @@ namespace WindowsFormsApp3
             string UI = UITextBox.Text;
             string ProgrammingLanguage = ProgrammingLanguageTextBox.Text;
             string DatabaseName = DatabaseTextBox.Text;
-            int EmployeeId1 = Convert.ToInt32(Employee_TechnicalComboBox.Text);
+            int EmployeeId = Convert.ToInt32(Employee_TechnicalComboBox.Text);
 
-            SqlConnection mysqlconnection = new SqlConnection();
-            mysqlconnection.ConnectionString = "Data Source = PRAJWOLPC;" +
-                         "database = Pioneer_Employee_Database1;Integrated security = SSPI";
+            EmployeeDataAccessLayer EmployeeDAL = new EmployeeDataAccessLayer();
+
+            int NoOfRowsAffected = EmployeeDAL.SaveTechnicalData(UI, ProgrammingLanguage, DatabaseName, EmployeeId);
+            if (NoOfRowsAffected > 0)
+                MessageBox.Show("Succesfully saved");
+            else
+                MessageBox.Show("Could Not Save");
 
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO TechnicalDetail VALUES('" + UI + "','" + ProgrammingLanguage + "','" + DatabaseName + "'," + EmployeeId1 + ")", mysqlconnection);
-            //Opening Sql Database Connection
-            mysqlconnection.Open();
-            SqlDataReader Dr = cmd.ExecuteReader();
-
-            mysqlconnection.Close();
-            Dr.Close();
 
             MessageBox.Show("Your Datas has been saved into the Technical Detail database");
 
@@ -349,7 +368,7 @@ namespace WindowsFormsApp3
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            ClearButton(TechnicalDetailTab.Controls);
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -373,20 +392,16 @@ namespace WindowsFormsApp3
             int YearOfPass= Convert.ToInt32(YearOfPassTextBox.Text);
             string CourseSpecialization = CourseSpecializationTextBox.Text;
 
-            int EmployeeIdEducation = Convert.ToInt32(Employee_EducationComboBox.Text);
+            int EmployeeId = Convert.ToInt32(Employee_EducationComboBox.Text);
 
-            SqlConnection mysqlconnection = new SqlConnection();
-            mysqlconnection.ConnectionString = "Data Source = PRAJWOLPC;" +
-                         "database = Pioneer_Employee_Database1;Integrated security = SSPI";
+            EmployeeDataAccessLayer EmployeeDAL = new EmployeeDataAccessLayer();
 
+            int NoOfRowsAffected = EmployeeDAL.SaveEducationData(CourseType, YearOfPass, CourseSpecialization, EmployeeId);
+            if (NoOfRowsAffected > 0)
+                MessageBox.Show("Succesfully saved");
+            else
+                MessageBox.Show("Could Not Save");
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO EducationDetail VALUES('" + CourseType + "'," + YearOfPass + ",'" + CourseSpecialization + "'," + EmployeeIdEducation + ")", mysqlconnection);
-            //Opening Sql Database Connection
-            mysqlconnection.Open();
-            SqlDataReader Dr = cmd.ExecuteReader();
-
-            mysqlconnection.Close();
-            Dr.Close();
 
             MessageBox.Show("Your Datas has been saved into the Technical Detail database");
         }
@@ -401,6 +416,34 @@ namespace WindowsFormsApp3
         {
 
            
+        }
+
+        private void ProjectDetailClearButton_Click(object sender, EventArgs e)
+        {
+            ClearButton(ProjectDetailTab.Controls);
+        }
+
+        public void ClearButton(Control.ControlCollection CurrentTab)
+        {
+            foreach (var EveryBox in CurrentTab)
+            {
+                if (EveryBox.GetType().Equals(typeof(TextBox)))
+                {
+                    TextBox TextBoxInTab = EveryBox as TextBox;
+                    TextBoxInTab.Clear();
+                }
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ClearButton(CompanyDetailTab.Controls);
+        }
+
+        private void EducationClearButton_Click(object sender, EventArgs e)
+        {
+            ClearButton(EducationDetailTab.Controls);
         }
     }
 }

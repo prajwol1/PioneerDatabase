@@ -30,8 +30,6 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.EmployeeDetailTab = new System.Windows.Forms.TabPage();
-            this.ShowEmployeeDetailButton = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.EmployeeDetailsClearButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -55,6 +53,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.FirstNameTextBox = new System.Windows.Forms.TextBox();
             this.ProjectDetailTab = new System.Windows.Forms.TabPage();
+            this.Employee_ProjectComboBox = new System.Windows.Forms.ComboBox();
             this.ProjectDetailClearButton = new System.Windows.Forms.Button();
             this.ProjectDetailSaveButton = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
@@ -67,19 +66,7 @@
             this.ProjectNameTextBox = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.CompanyDetailTab = new System.Windows.Forms.TabPage();
-            this.TechnicalDetailTab = new System.Windows.Forms.TabPage();
-            this.EducationDetailTab = new System.Windows.Forms.TabPage();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.EmployeeDataGridView = new System.Windows.Forms.DataGridView();
-            this.ProjectDataGridView = new System.Windows.Forms.DataGridView();
-            this.CompanyDataGridView = new System.Windows.Forms.DataGridView();
-            this.label16 = new System.Windows.Forms.Label();
-            this.DashBoardEmployeeIdTextBox = new System.Windows.Forms.TextBox();
-            this.ShowAllEmployeeButton = new System.Windows.Forms.Button();
-            this.ShowDetailsButton = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
+            this.Employee_CompanyComboBox = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.CompanyDetailsSaveButton = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
@@ -91,7 +78,9 @@
             this.label23 = new System.Windows.Forms.Label();
             this.EmployerNameTextBox = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.TechnicalDetailTab = new System.Windows.Forms.TabPage();
+            this.Employee_TechnicalComboBox = new System.Windows.Forms.ComboBox();
+            this.TechnicalClearButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.DatabaseTextBox = new System.Windows.Forms.TextBox();
@@ -100,7 +89,9 @@
             this.label28 = new System.Windows.Forms.Label();
             this.UITextBox = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.EducationDetailTab = new System.Windows.Forms.TabPage();
+            this.Employee_EducationComboBox = new System.Windows.Forms.ComboBox();
+            this.EducationClearButton = new System.Windows.Forms.Button();
             this.EducationDetailSaveButton = new System.Windows.Forms.Button();
             this.label25 = new System.Windows.Forms.Label();
             this.CourseSpecializationTextBox = new System.Windows.Forms.TextBox();
@@ -109,21 +100,27 @@
             this.label31 = new System.Windows.Forms.Label();
             this.CourseTextBox = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
-            this.Employee_ProjectComboBox = new System.Windows.Forms.ComboBox();
-            this.Employee_CompanyComboBox = new System.Windows.Forms.ComboBox();
-            this.Employee_TechnicalComboBox = new System.Windows.Forms.ComboBox();
-            this.Employee_EducationComboBox = new System.Windows.Forms.ComboBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.ShowDetailsButton = new System.Windows.Forms.Button();
+            this.ShowAllEmployeeButton = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.CompanyDataGridView = new System.Windows.Forms.DataGridView();
+            this.ProjectDataGridView = new System.Windows.Forms.DataGridView();
+            this.EmployeeDataGridView = new System.Windows.Forms.DataGridView();
+            this.DashBoardComboBox = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.EmployeeDetailTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.ProjectDetailTab.SuspendLayout();
             this.CompanyDetailTab.SuspendLayout();
             this.TechnicalDetailTab.SuspendLayout();
             this.EducationDetailTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.EmployeeDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ProjectDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CompanyDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProjectDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EmployeeDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -143,8 +140,6 @@
             // EmployeeDetailTab
             // 
             this.EmployeeDetailTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.EmployeeDetailTab.Controls.Add(this.ShowEmployeeDetailButton);
-            this.EmployeeDetailTab.Controls.Add(this.dataGridView1);
             this.EmployeeDetailTab.Controls.Add(this.EmployeeDetailsClearButton);
             this.EmployeeDetailTab.Controls.Add(this.SaveButton);
             this.EmployeeDetailTab.Controls.Add(this.label10);
@@ -174,24 +169,6 @@
             this.EmployeeDetailTab.TabIndex = 0;
             this.EmployeeDetailTab.Text = "Employee Details";
             this.EmployeeDetailTab.Click += new System.EventHandler(this.EmployeeDetailTab_Click);
-            // 
-            // ShowEmployeeDetailButton
-            // 
-            this.ShowEmployeeDetailButton.Location = new System.Drawing.Point(399, 266);
-            this.ShowEmployeeDetailButton.Name = "ShowEmployeeDetailButton";
-            this.ShowEmployeeDetailButton.Size = new System.Drawing.Size(214, 23);
-            this.ShowEmployeeDetailButton.TabIndex = 22;
-            this.ShowEmployeeDetailButton.Text = "(TEST/DEBUG) Show Employee Details";
-            this.ShowEmployeeDetailButton.UseVisualStyleBackColor = true;
-            this.ShowEmployeeDetailButton.Click += new System.EventHandler(this.ShowEmployeeDetailButton_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(399, 295);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(270, 167);
-            this.dataGridView1.TabIndex = 1;
             // 
             // EmployeeDetailsClearButton
             // 
@@ -401,6 +378,15 @@
             this.ProjectDetailTab.TabIndex = 1;
             this.ProjectDetailTab.Text = "Project Details";
             // 
+            // Employee_ProjectComboBox
+            // 
+            this.Employee_ProjectComboBox.FormattingEnabled = true;
+            this.Employee_ProjectComboBox.Location = new System.Drawing.Point(154, 209);
+            this.Employee_ProjectComboBox.Name = "Employee_ProjectComboBox";
+            this.Employee_ProjectComboBox.Size = new System.Drawing.Size(168, 21);
+            this.Employee_ProjectComboBox.TabIndex = 24;
+            this.Employee_ProjectComboBox.SelectedIndexChanged += new System.EventHandler(this.EmployeeComboBox_SelectedIndexChanged);
+            // 
             // ProjectDetailClearButton
             // 
             this.ProjectDetailClearButton.Location = new System.Drawing.Point(334, 409);
@@ -409,6 +395,7 @@
             this.ProjectDetailClearButton.TabIndex = 23;
             this.ProjectDetailClearButton.Text = "Clear";
             this.ProjectDetailClearButton.UseVisualStyleBackColor = true;
+            this.ProjectDetailClearButton.Click += new System.EventHandler(this.ProjectDetailClearButton_Click);
             // 
             // ProjectDetailSaveButton
             // 
@@ -515,154 +502,13 @@
             this.CompanyDetailTab.TabIndex = 2;
             this.CompanyDetailTab.Text = "Company Details";
             // 
-            // TechnicalDetailTab
+            // Employee_CompanyComboBox
             // 
-            this.TechnicalDetailTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.TechnicalDetailTab.Controls.Add(this.Employee_TechnicalComboBox);
-            this.TechnicalDetailTab.Controls.Add(this.button2);
-            this.TechnicalDetailTab.Controls.Add(this.button3);
-            this.TechnicalDetailTab.Controls.Add(this.label26);
-            this.TechnicalDetailTab.Controls.Add(this.DatabaseTextBox);
-            this.TechnicalDetailTab.Controls.Add(this.label27);
-            this.TechnicalDetailTab.Controls.Add(this.ProgrammingLanguageTextBox);
-            this.TechnicalDetailTab.Controls.Add(this.label28);
-            this.TechnicalDetailTab.Controls.Add(this.UITextBox);
-            this.TechnicalDetailTab.Controls.Add(this.label29);
-            this.TechnicalDetailTab.Location = new System.Drawing.Point(4, 22);
-            this.TechnicalDetailTab.Name = "TechnicalDetailTab";
-            this.TechnicalDetailTab.Size = new System.Drawing.Size(681, 477);
-            this.TechnicalDetailTab.TabIndex = 3;
-            this.TechnicalDetailTab.Text = "Technical Details";
-            // 
-            // EducationDetailTab
-            // 
-            this.EducationDetailTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.EducationDetailTab.Controls.Add(this.Employee_EducationComboBox);
-            this.EducationDetailTab.Controls.Add(this.button4);
-            this.EducationDetailTab.Controls.Add(this.EducationDetailSaveButton);
-            this.EducationDetailTab.Controls.Add(this.label25);
-            this.EducationDetailTab.Controls.Add(this.CourseSpecializationTextBox);
-            this.EducationDetailTab.Controls.Add(this.label30);
-            this.EducationDetailTab.Controls.Add(this.YearOfPassTextBox);
-            this.EducationDetailTab.Controls.Add(this.label31);
-            this.EducationDetailTab.Controls.Add(this.CourseTextBox);
-            this.EducationDetailTab.Controls.Add(this.label32);
-            this.EducationDetailTab.Location = new System.Drawing.Point(4, 22);
-            this.EducationDetailTab.Name = "EducationDetailTab";
-            this.EducationDetailTab.Size = new System.Drawing.Size(681, 477);
-            this.EducationDetailTab.TabIndex = 4;
-            this.EducationDetailTab.Text = "Education Details";
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.tabPage1.Controls.Add(this.label19);
-            this.tabPage1.Controls.Add(this.label18);
-            this.tabPage1.Controls.Add(this.label17);
-            this.tabPage1.Controls.Add(this.ShowDetailsButton);
-            this.tabPage1.Controls.Add(this.ShowAllEmployeeButton);
-            this.tabPage1.Controls.Add(this.DashBoardEmployeeIdTextBox);
-            this.tabPage1.Controls.Add(this.label16);
-            this.tabPage1.Controls.Add(this.CompanyDataGridView);
-            this.tabPage1.Controls.Add(this.ProjectDataGridView);
-            this.tabPage1.Controls.Add(this.EmployeeDataGridView);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(681, 477);
-            this.tabPage1.TabIndex = 5;
-            this.tabPage1.Text = "Dash Board";
-            // 
-            // EmployeeDataGridView
-            // 
-            this.EmployeeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.EmployeeDataGridView.Location = new System.Drawing.Point(33, 84);
-            this.EmployeeDataGridView.Name = "EmployeeDataGridView";
-            this.EmployeeDataGridView.Size = new System.Drawing.Size(644, 101);
-            this.EmployeeDataGridView.TabIndex = 0;
-            this.EmployeeDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // ProjectDataGridView
-            // 
-            this.ProjectDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ProjectDataGridView.Location = new System.Drawing.Point(34, 337);
-            this.ProjectDataGridView.Name = "ProjectDataGridView";
-            this.ProjectDataGridView.Size = new System.Drawing.Size(644, 105);
-            this.ProjectDataGridView.TabIndex = 1;
-            // 
-            // CompanyDataGridView
-            // 
-            this.CompanyDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.CompanyDataGridView.Location = new System.Drawing.Point(33, 213);
-            this.CompanyDataGridView.Name = "CompanyDataGridView";
-            this.CompanyDataGridView.Size = new System.Drawing.Size(645, 105);
-            this.CompanyDataGridView.TabIndex = 2;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(31, 20);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(96, 13);
-            this.label16.TabIndex = 3;
-            this.label16.Text = "Enter Employee Id ";
-            // 
-            // DashBoardEmployeeIdTextBox
-            // 
-            this.DashBoardEmployeeIdTextBox.Location = new System.Drawing.Point(161, 20);
-            this.DashBoardEmployeeIdTextBox.Name = "DashBoardEmployeeIdTextBox";
-            this.DashBoardEmployeeIdTextBox.Size = new System.Drawing.Size(100, 20);
-            this.DashBoardEmployeeIdTextBox.TabIndex = 4;
-            this.DashBoardEmployeeIdTextBox.TextChanged += new System.EventHandler(this.DashBoardEmployeeIdTextBox_TextChanged);
-            // 
-            // ShowAllEmployeeButton
-            // 
-            this.ShowAllEmployeeButton.Location = new System.Drawing.Point(533, 56);
-            this.ShowAllEmployeeButton.Name = "ShowAllEmployeeButton";
-            this.ShowAllEmployeeButton.Size = new System.Drawing.Size(131, 20);
-            this.ShowAllEmployeeButton.TabIndex = 5;
-            this.ShowAllEmployeeButton.Text = "Show All Database";
-            this.ShowAllEmployeeButton.UseVisualStyleBackColor = true;
-            this.ShowAllEmployeeButton.Click += new System.EventHandler(this.ShowAllEmployeeButton_Click);
-            // 
-            // ShowDetailsButton
-            // 
-            this.ShowDetailsButton.Location = new System.Drawing.Point(327, 16);
-            this.ShowDetailsButton.Name = "ShowDetailsButton";
-            this.ShowDetailsButton.Size = new System.Drawing.Size(75, 23);
-            this.ShowDetailsButton.TabIndex = 6;
-            this.ShowDetailsButton.Text = "Show Details";
-            this.ShowDetailsButton.UseVisualStyleBackColor = true;
-            this.ShowDetailsButton.Click += new System.EventHandler(this.ShowDetailsButton_Click);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(30, 66);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(119, 15);
-            this.label17.TabIndex = 7;
-            this.label17.Text = "Employee Details";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(31, 321);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(101, 15);
-            this.label18.TabIndex = 8;
-            this.label18.Text = "Project Details";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(32, 197);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(115, 15);
-            this.label19.TabIndex = 9;
-            this.label19.Text = "Company Details";
+            this.Employee_CompanyComboBox.FormattingEnabled = true;
+            this.Employee_CompanyComboBox.Location = new System.Drawing.Point(155, 204);
+            this.Employee_CompanyComboBox.Name = "Employee_CompanyComboBox";
+            this.Employee_CompanyComboBox.Size = new System.Drawing.Size(168, 21);
+            this.Employee_CompanyComboBox.TabIndex = 36;
             // 
             // button1
             // 
@@ -672,6 +518,7 @@
             this.button1.TabIndex = 35;
             this.button1.Text = "Clear";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // CompanyDetailsSaveButton
             // 
@@ -756,15 +603,42 @@
             this.label24.TabIndex = 25;
             this.label24.Text = "Employee Id";
             // 
-            // button2
+            // TechnicalDetailTab
             // 
-            this.button2.Location = new System.Drawing.Point(339, 407);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(89, 30);
-            this.button2.TabIndex = 47;
-            this.button2.Text = "Clear";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.TechnicalDetailTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.TechnicalDetailTab.Controls.Add(this.Employee_TechnicalComboBox);
+            this.TechnicalDetailTab.Controls.Add(this.TechnicalClearButton);
+            this.TechnicalDetailTab.Controls.Add(this.button3);
+            this.TechnicalDetailTab.Controls.Add(this.label26);
+            this.TechnicalDetailTab.Controls.Add(this.DatabaseTextBox);
+            this.TechnicalDetailTab.Controls.Add(this.label27);
+            this.TechnicalDetailTab.Controls.Add(this.ProgrammingLanguageTextBox);
+            this.TechnicalDetailTab.Controls.Add(this.label28);
+            this.TechnicalDetailTab.Controls.Add(this.UITextBox);
+            this.TechnicalDetailTab.Controls.Add(this.label29);
+            this.TechnicalDetailTab.Location = new System.Drawing.Point(4, 22);
+            this.TechnicalDetailTab.Name = "TechnicalDetailTab";
+            this.TechnicalDetailTab.Size = new System.Drawing.Size(681, 477);
+            this.TechnicalDetailTab.TabIndex = 3;
+            this.TechnicalDetailTab.Text = "Technical Details";
+            // 
+            // Employee_TechnicalComboBox
+            // 
+            this.Employee_TechnicalComboBox.FormattingEnabled = true;
+            this.Employee_TechnicalComboBox.Location = new System.Drawing.Point(158, 178);
+            this.Employee_TechnicalComboBox.Name = "Employee_TechnicalComboBox";
+            this.Employee_TechnicalComboBox.Size = new System.Drawing.Size(168, 21);
+            this.Employee_TechnicalComboBox.TabIndex = 48;
+            // 
+            // TechnicalClearButton
+            // 
+            this.TechnicalClearButton.Location = new System.Drawing.Point(339, 407);
+            this.TechnicalClearButton.Name = "TechnicalClearButton";
+            this.TechnicalClearButton.Size = new System.Drawing.Size(89, 30);
+            this.TechnicalClearButton.TabIndex = 47;
+            this.TechnicalClearButton.Text = "Clear";
+            this.TechnicalClearButton.UseVisualStyleBackColor = true;
+            this.TechnicalClearButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -840,14 +714,42 @@
             this.label29.Text = "Employee Id";
             this.label29.Click += new System.EventHandler(this.label29_Click);
             // 
-            // button4
+            // EducationDetailTab
             // 
-            this.button4.Location = new System.Drawing.Point(337, 413);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(89, 30);
-            this.button4.TabIndex = 57;
-            this.button4.Text = "Clear";
-            this.button4.UseVisualStyleBackColor = true;
+            this.EducationDetailTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.EducationDetailTab.Controls.Add(this.Employee_EducationComboBox);
+            this.EducationDetailTab.Controls.Add(this.EducationClearButton);
+            this.EducationDetailTab.Controls.Add(this.EducationDetailSaveButton);
+            this.EducationDetailTab.Controls.Add(this.label25);
+            this.EducationDetailTab.Controls.Add(this.CourseSpecializationTextBox);
+            this.EducationDetailTab.Controls.Add(this.label30);
+            this.EducationDetailTab.Controls.Add(this.YearOfPassTextBox);
+            this.EducationDetailTab.Controls.Add(this.label31);
+            this.EducationDetailTab.Controls.Add(this.CourseTextBox);
+            this.EducationDetailTab.Controls.Add(this.label32);
+            this.EducationDetailTab.Location = new System.Drawing.Point(4, 22);
+            this.EducationDetailTab.Name = "EducationDetailTab";
+            this.EducationDetailTab.Size = new System.Drawing.Size(681, 477);
+            this.EducationDetailTab.TabIndex = 4;
+            this.EducationDetailTab.Text = "Education Details";
+            // 
+            // Employee_EducationComboBox
+            // 
+            this.Employee_EducationComboBox.FormattingEnabled = true;
+            this.Employee_EducationComboBox.Location = new System.Drawing.Point(161, 179);
+            this.Employee_EducationComboBox.Name = "Employee_EducationComboBox";
+            this.Employee_EducationComboBox.Size = new System.Drawing.Size(168, 21);
+            this.Employee_EducationComboBox.TabIndex = 58;
+            // 
+            // EducationClearButton
+            // 
+            this.EducationClearButton.Location = new System.Drawing.Point(337, 413);
+            this.EducationClearButton.Name = "EducationClearButton";
+            this.EducationClearButton.Size = new System.Drawing.Size(89, 30);
+            this.EducationClearButton.TabIndex = 57;
+            this.EducationClearButton.Text = "Clear";
+            this.EducationClearButton.UseVisualStyleBackColor = true;
+            this.EducationClearButton.Click += new System.EventHandler(this.EducationClearButton_Click);
             // 
             // EducationDetailSaveButton
             // 
@@ -916,38 +818,116 @@
             this.label32.TabIndex = 49;
             this.label32.Text = "Employee Id";
             // 
-            // Employee_ProjectComboBox
+            // tabPage1
             // 
-            this.Employee_ProjectComboBox.FormattingEnabled = true;
-            this.Employee_ProjectComboBox.Location = new System.Drawing.Point(154, 209);
-            this.Employee_ProjectComboBox.Name = "Employee_ProjectComboBox";
-            this.Employee_ProjectComboBox.Size = new System.Drawing.Size(168, 21);
-            this.Employee_ProjectComboBox.TabIndex = 24;
-            this.Employee_ProjectComboBox.SelectedIndexChanged += new System.EventHandler(this.EmployeeComboBox_SelectedIndexChanged);
+            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tabPage1.Controls.Add(this.DashBoardComboBox);
+            this.tabPage1.Controls.Add(this.label19);
+            this.tabPage1.Controls.Add(this.label18);
+            this.tabPage1.Controls.Add(this.label17);
+            this.tabPage1.Controls.Add(this.ShowDetailsButton);
+            this.tabPage1.Controls.Add(this.ShowAllEmployeeButton);
+            this.tabPage1.Controls.Add(this.label16);
+            this.tabPage1.Controls.Add(this.CompanyDataGridView);
+            this.tabPage1.Controls.Add(this.ProjectDataGridView);
+            this.tabPage1.Controls.Add(this.EmployeeDataGridView);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(681, 477);
+            this.tabPage1.TabIndex = 5;
+            this.tabPage1.Text = "Dash Board";
             // 
-            // Employee_CompanyComboBox
+            // label19
             // 
-            this.Employee_CompanyComboBox.FormattingEnabled = true;
-            this.Employee_CompanyComboBox.Location = new System.Drawing.Point(155, 204);
-            this.Employee_CompanyComboBox.Name = "Employee_CompanyComboBox";
-            this.Employee_CompanyComboBox.Size = new System.Drawing.Size(168, 21);
-            this.Employee_CompanyComboBox.TabIndex = 36;
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(32, 197);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(115, 15);
+            this.label19.TabIndex = 9;
+            this.label19.Text = "Company Details";
             // 
-            // Employee_TechnicalComboBox
+            // label18
             // 
-            this.Employee_TechnicalComboBox.FormattingEnabled = true;
-            this.Employee_TechnicalComboBox.Location = new System.Drawing.Point(158, 178);
-            this.Employee_TechnicalComboBox.Name = "Employee_TechnicalComboBox";
-            this.Employee_TechnicalComboBox.Size = new System.Drawing.Size(168, 21);
-            this.Employee_TechnicalComboBox.TabIndex = 48;
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(31, 321);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(101, 15);
+            this.label18.TabIndex = 8;
+            this.label18.Text = "Project Details";
             // 
-            // Employee_EducationComboBox
+            // label17
             // 
-            this.Employee_EducationComboBox.FormattingEnabled = true;
-            this.Employee_EducationComboBox.Location = new System.Drawing.Point(161, 179);
-            this.Employee_EducationComboBox.Name = "Employee_EducationComboBox";
-            this.Employee_EducationComboBox.Size = new System.Drawing.Size(168, 21);
-            this.Employee_EducationComboBox.TabIndex = 58;
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(30, 66);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(119, 15);
+            this.label17.TabIndex = 7;
+            this.label17.Text = "Employee Details";
+            // 
+            // ShowDetailsButton
+            // 
+            this.ShowDetailsButton.Location = new System.Drawing.Point(327, 16);
+            this.ShowDetailsButton.Name = "ShowDetailsButton";
+            this.ShowDetailsButton.Size = new System.Drawing.Size(75, 23);
+            this.ShowDetailsButton.TabIndex = 6;
+            this.ShowDetailsButton.Text = "Show Details";
+            this.ShowDetailsButton.UseVisualStyleBackColor = true;
+            this.ShowDetailsButton.Click += new System.EventHandler(this.ShowDetailsButton_Click);
+            // 
+            // ShowAllEmployeeButton
+            // 
+            this.ShowAllEmployeeButton.Location = new System.Drawing.Point(533, 56);
+            this.ShowAllEmployeeButton.Name = "ShowAllEmployeeButton";
+            this.ShowAllEmployeeButton.Size = new System.Drawing.Size(131, 20);
+            this.ShowAllEmployeeButton.TabIndex = 5;
+            this.ShowAllEmployeeButton.Text = "Show All Database";
+            this.ShowAllEmployeeButton.UseVisualStyleBackColor = true;
+            this.ShowAllEmployeeButton.Click += new System.EventHandler(this.ShowAllEmployeeButton_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(31, 20);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(96, 13);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "Enter Employee Id ";
+            // 
+            // CompanyDataGridView
+            // 
+            this.CompanyDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CompanyDataGridView.Location = new System.Drawing.Point(33, 213);
+            this.CompanyDataGridView.Name = "CompanyDataGridView";
+            this.CompanyDataGridView.Size = new System.Drawing.Size(645, 105);
+            this.CompanyDataGridView.TabIndex = 2;
+            // 
+            // ProjectDataGridView
+            // 
+            this.ProjectDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ProjectDataGridView.Location = new System.Drawing.Point(34, 337);
+            this.ProjectDataGridView.Name = "ProjectDataGridView";
+            this.ProjectDataGridView.Size = new System.Drawing.Size(644, 105);
+            this.ProjectDataGridView.TabIndex = 1;
+            // 
+            // EmployeeDataGridView
+            // 
+            this.EmployeeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.EmployeeDataGridView.Location = new System.Drawing.Point(33, 84);
+            this.EmployeeDataGridView.Name = "EmployeeDataGridView";
+            this.EmployeeDataGridView.Size = new System.Drawing.Size(644, 101);
+            this.EmployeeDataGridView.TabIndex = 0;
+            this.EmployeeDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            // 
+            // DashBoardComboBox
+            // 
+            this.DashBoardComboBox.FormattingEnabled = true;
+            this.DashBoardComboBox.Location = new System.Drawing.Point(151, 20);
+            this.DashBoardComboBox.Name = "DashBoardComboBox";
+            this.DashBoardComboBox.Size = new System.Drawing.Size(121, 21);
+            this.DashBoardComboBox.TabIndex = 10;
             // 
             // Employee_Form
             // 
@@ -960,7 +940,6 @@
             this.tabControl1.ResumeLayout(false);
             this.EmployeeDetailTab.ResumeLayout(false);
             this.EmployeeDetailTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ProjectDetailTab.ResumeLayout(false);
             this.ProjectDetailTab.PerformLayout();
             this.CompanyDetailTab.ResumeLayout(false);
@@ -971,9 +950,9 @@
             this.EducationDetailTab.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.EmployeeDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ProjectDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CompanyDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProjectDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EmployeeDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1019,12 +998,9 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button ProjectDetailClearButton;
         private System.Windows.Forms.Button ProjectDetailSaveButton;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button ShowEmployeeDetailButton;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView ProjectDataGridView;
         private System.Windows.Forms.DataGridView EmployeeDataGridView;
-        private System.Windows.Forms.TextBox DashBoardEmployeeIdTextBox;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.DataGridView CompanyDataGridView;
         private System.Windows.Forms.Button ShowDetailsButton;
@@ -1043,7 +1019,7 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox EmployerNameTextBox;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button TechnicalClearButton;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox DatabaseTextBox;
@@ -1052,7 +1028,7 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox UITextBox;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button EducationClearButton;
         private System.Windows.Forms.Button EducationDetailSaveButton;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox CourseSpecializationTextBox;
@@ -1065,6 +1041,7 @@
         private System.Windows.Forms.ComboBox Employee_CompanyComboBox;
         private System.Windows.Forms.ComboBox Employee_TechnicalComboBox;
         private System.Windows.Forms.ComboBox Employee_EducationComboBox;
+        private System.Windows.Forms.ComboBox DashBoardComboBox;
     }
 }
 
