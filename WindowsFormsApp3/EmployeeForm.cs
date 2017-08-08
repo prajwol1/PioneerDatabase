@@ -283,7 +283,7 @@ namespace WindowsFormsApp3
             mysqlconnection.Close();
             Dr.Close();
 
-            MessageBox.Show("Your Datas has been saved into the Company Detail database");
+            MessageBox.Show("Your Data has been saved into the Company Detail database");
 
 
         }
