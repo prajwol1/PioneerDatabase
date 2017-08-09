@@ -1,0 +1,5 @@
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerEmployeeDatabase.DAL\bin\Release\PioneerEmployeeDatabase.DAL.dll
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerEmployeeDatabase.DAL\bin\Release\PioneerEmployeeDatabase.DAL.pdb
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerEmployeeDatabase.DAL\obj\Release\PioneerEmployeeDatabase.DAL.csprojResolveAssemblyReference.cache
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerEmployeeDatabase.DAL\obj\Release\PioneerEmployeeDatabase.DAL.dll
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerEmployeeDatabase.DAL\obj\Release\PioneerEmployeeDatabase.DAL.pdb

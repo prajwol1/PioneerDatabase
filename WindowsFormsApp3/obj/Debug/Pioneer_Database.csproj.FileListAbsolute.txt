@@ -9,3 +9,14 @@ c:\users\prajwol\documents\visual studio 2017\Projects\WindowsFormsApp3\WindowsF
 c:\users\prajwol\documents\visual studio 2017\Projects\WindowsFormsApp3\WindowsFormsApp3\obj\Debug\WindowsFormsApp3.pdb
 C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\WindowsFormsApp3\bin\Debug\PioneerEmployeeDatabase.DAL.dll
 C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\WindowsFormsApp3\bin\Debug\PioneerEmployeeDatabase.DAL.pdb
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabseSystem\bin\Debug\PioneerTechEMS.exe.config
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabseSystem\bin\Debug\PioneerTechEMS.exe
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabseSystem\bin\Debug\PioneerTechEMS.pdb
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabseSystem\bin\Debug\PioneerEmployeeDatabase.DAL.dll
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabseSystem\bin\Debug\PioneerEmployeeDatabase.DAL.pdb
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabseSystem\obj\Debug\Pioneer_Database.csprojResolveAssemblyReference.cache
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabseSystem\obj\Debug\WindowsFormsApp3.Employee_Form.resources
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabseSystem\obj\Debug\PioneerTechEMS.Properties.Resources.resources
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabseSystem\obj\Debug\Pioneer_Database.csproj.GenerateResource.Cache
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabseSystem\obj\Debug\PioneerTechEMS.exe
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabseSystem\obj\Debug\PioneerTechEMS.pdb

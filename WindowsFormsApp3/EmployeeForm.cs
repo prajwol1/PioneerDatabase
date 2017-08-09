@@ -81,25 +81,7 @@ namespace WindowsFormsApp3
                 string CurrentCountry = CurrentCountryTextBox.Text;
                 string HomeCountry = HomeCountryTextBox.Text;
                 int ZipCode = Convert.ToInt32(ZipCodeTextBox.Text);
-
-                // //Creating Sql Database Connection
-                // SqlConnection mysqlconnection = new SqlConnection();
-                // mysqlconnection.ConnectionString = "Data Source = PRAJWOLPC;" +
-                //              "database = Pioneer_Employee_Database1;Integrated security = SSPI";
-
-
-                // SqlCommand cmd = new SqlCommand("INSERT INTO EmployeeDetail VALUES(" + 
-                //              "'" + FirstName + "','" + LastName + "','" + EmailId + "'," +
-                //              MobileNumber + "," + AlternateMobileNumber + ",'" + Address1 + "','" + Address2 + 
-                //              "','" + CurrentCountry + "','" + HomeCountry + "'," + ZipCode +")", mysqlconnection);
-                // //Opening Sql Database Connection
-                // mysqlconnection.Open();
-                //SqlDataReader Dr = cmd.ExecuteReader();
-
-                // mysqlconnection.Close();
-                // Dr.Close();
-                // MessageBox.Show("Your Datas has been saved into the database");
-
+                
                 EmployeeDataAccessLayer EmployeeDAL = new EmployeeDataAccessLayer();
 
                 int NoOfRowsAffected = EmployeeDAL.SaveEmployeeData(FirstName, LastName, EmailId, MobileNumber, AlternateMobileNumber, Address1, Address2, CurrentCountry, HomeCountry, ZipCode);

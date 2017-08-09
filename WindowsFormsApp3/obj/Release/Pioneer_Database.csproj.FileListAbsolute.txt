@@ -1,0 +1,11 @@
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\WindowsFormsApp3\bin\Release\PioneerEmployeeDatabase.DAL.dll
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\WindowsFormsApp3\bin\Release\PioneerEmployeeDatabase.DAL.pdb
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\WindowsFormsApp3\obj\Release\Pioneer_Database.csprojResolveAssemblyReference.cache
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\WindowsFormsApp3\obj\Release\WindowsFormsApp3.Employee_Form.resources
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\WindowsFormsApp3\obj\Release\Pioneer_Database.csproj.GenerateResource.Cache
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\WindowsFormsApp3\bin\Release\PioneerTechEMS.exe.config
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\WindowsFormsApp3\bin\Release\PioneerTechEMS.exe
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\WindowsFormsApp3\bin\Release\PioneerTechEMS.pdb
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\WindowsFormsApp3\obj\Release\PioneerTechEMS.Properties.Resources.resources
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\WindowsFormsApp3\obj\Release\PioneerTechEMS.exe
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\WindowsFormsApp3\obj\Release\PioneerTechEMS.pdb

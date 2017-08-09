@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="C:\Program Files (x86)\InstallShield\2016\Support\0409\buildreport.xsl"?>
+<BuildReport ProductName="PioneerSetup" ProductVersion="1.00.0000" Built="8-8-2017 07-45-17 PM" Config="Default Configuration" Media="Release" Uncompressed="0.00 MB">
+  <Features>
+    <Feature Title="##IDS_FEATURE_DISPLAY_NAME1##">PioneerSetup_Files</Feature>
+  </Features>
+  <Components>
+    <Component x64="32">AllOtherFiles</Component>
+    <Component x64="32" KeyPath="pioneeremployeedatabase.dal.">PioneerEmployeeDatabase.DAL.dll</Component>
+    <Component x64="32" KeyPath="pioneertechems.exe">PioneerTechEMS.exe</Component>
+  </Components>
+  <Prerequisites />
+  <MergeModules />
+  <DynamicLinks />
+  <Files>
+    <File Destination="{INSTALLDIR} [ProgramFilesFolder]Pioneer Tech\PioneerSetup" Component="PioneerEmployeeDatabase.DAL.dll" Modified="8/8/2017 3:20:52 PM" Size="7168" Version="1.0.0.0">PioneerEmployeeDatabase.DAL.dll</File>
+    <File Destination="{INSTALLDIR} [ProgramFilesFolder]Pioneer Tech\PioneerSetup" Component="AllOtherFiles" Modified="8/8/2017 3:20:52 PM" Size="13824" Version="">PioneerEmployeeDatabase.DAL.pdb</File>
+    <File Destination="{INSTALLDIR} [ProgramFilesFolder]Pioneer Tech\PioneerSetup" Component="AllOtherFiles" Modified="8/4/2017 3:00:54 PM" Size="189" Version="">PioneerTechEMS.exe.config</File>
+    <File Destination="{INSTALLDIR} [ProgramFilesFolder]Pioneer Tech\PioneerSetup" Component="AllOtherFiles" Modified="8/8/2017 7:28:57 PM" Size="42496" Version="">PioneerTechEMS.pdb</File>
+    <File Destination="{INSTALLDIR} [ProgramFilesFolder]Pioneer Tech\PioneerSetup" Component="PioneerTechEMS.exe" Modified="8/8/2017 7:28:57 PM" Size="31232" Version="1.0.0.0">PioneerTechEMS.exe</File>
+  </Files>
+</BuildReport>
