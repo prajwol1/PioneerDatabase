@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using PioneerEmployeeDatabase.DAL;
+using Pioneer.Database.Model;
 
 namespace WindowsFormsApp3
 {
@@ -36,57 +37,31 @@ namespace WindowsFormsApp3
             mysqlconnection.Close();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void SaveButton_Click(object sender, EventArgs e)
         {
            try
            {
+                EmployeeModel employeeModel = new EmployeeModel()
+                {
+                    FirstName = FirstNameTextBox.Text,
+                    LastName = LastNameTextBox.Text,
+                    EmailId = EmailIdTextBox.Text,
+                    MobileNumber = Convert.ToInt64(MobileNumberTextBox.Text),
+                    AlternateMobileNumber = Convert.ToInt64(AlternateMobileNumberTextBox.Text),
+                    Address1 = Address1TextBox.Text,
+                    Address2 = Address2TextBox.Text,
+                    CurrentCountry = CurrentCountryTextBox.Text,
+                    HomeCountry = HomeCountryTextBox.Text,
+                    ZipCode = Convert.ToInt32(ZipCodeTextBox.Text)
 
-                string FirstName = FirstNameTextBox.Text;
-                string LastName = LastNameTextBox.Text;
-                string EmailId = EmailIdTextBox.Text;
-                long MobileNumber = Convert.ToInt64(MobileNumberTextBox.Text);
-                long AlternateMobileNumber = Convert.ToInt64(AlternateMobileNumberTextBox.Text);
-                string Address1 = Address1TextBox.Text;
-                string Address2 = Address2TextBox.Text;
-                string CurrentCountry = CurrentCountryTextBox.Text;
-                string HomeCountry = HomeCountryTextBox.Text;
-                int ZipCode = Convert.ToInt32(ZipCodeTextBox.Text);
-                
+                };
+
                 EmployeeDataAccessLayer EmployeeDAL = new EmployeeDataAccessLayer();
 
-                int NoOfRowsAffected = EmployeeDAL.SaveEmployeeData(FirstName, LastName, EmailId, MobileNumber, AlternateMobileNumber, Address1, Address2, CurrentCountry, HomeCountry, ZipCode);
+                int NoOfRowsAffected = EmployeeDAL.SaveEmployeeData(employeeModel);
                 if (NoOfRowsAffected > 0)
-                    MessageBox.Show("Succesfully saved");
+                    MessageBox.Show("Succesfully saved in Employee Detail");
                 else
                     MessageBox.Show("Could Not Save");
             }
@@ -94,30 +69,17 @@ namespace WindowsFormsApp3
             {
                 MessageBox.Show("EXCEPTION OCCURED. PLEASE CONTACT ADMINISTRATOR",exception.Message);
             }
-            finally
-            {
-               
-
-            }
-            
+           
            
          }
 
-        private void label15_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void EmployeeDetailsClearButton_Click(object sender, EventArgs e)
         {
             ClearButton(EmployeeDetailTab.Controls);
         }
 
-        private void EmployeeDetailTab_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void ShowEmployeeDetailButton_Click(object sender, EventArgs e)
         {
             SqlConnection mysqlconnection = new SqlConnection();
@@ -130,7 +92,7 @@ namespace WindowsFormsApp3
             BindingSource source = new BindingSource();
             source.DataSource = Dr;
 
-            //dataGridView1.DataSource = source;
+            
             mysqlconnection.Close();
 
 
@@ -138,31 +100,26 @@ namespace WindowsFormsApp3
 
         private void ProjectDetailSaveButton_Click(object sender, EventArgs e)
         {
-            
-            string ProjectName = ProjectNameTextBox.Text;
-            string ClientName = ClientNameTextBox.Text;
-            string Location = LocationTextBox.Text;
-            string Roles = RolesTextBox.Text;
-            int EmployeeIdProject = Convert.ToInt32(Employee_ProjectComboBox.Text);
+            ProjectModel projectModel = new ProjectModel()
+            {
+                ProjectName = ProjectNameTextBox.Text,
+                ClientName = ClientNameTextBox.Text,
+                Place = LocationTextBox.Text,
+                Role = RolesTextBox.Text,
+                EmployeeId = Convert.ToInt32(Employee_ProjectComboBox.Text)
+            };
 
             EmployeeDataAccessLayer EmployeeDAL = new EmployeeDataAccessLayer();
 
-            int NoOfRowsAffected = EmployeeDAL.SaveProjectData(ProjectName, ClientName, Location, Roles,EmployeeIdProject);
+            int NoOfRowsAffected = EmployeeDAL.SaveProjectData(projectModel);
             if (NoOfRowsAffected > 0)
-                MessageBox.Show("Succesfully saved");
+                MessageBox.Show("Succesfully saved in Project Detail");
             else
                 MessageBox.Show("Could Not Save");
-
-
-
-            MessageBox.Show("Your Datas has been saved into the Project database");
             
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+       
 
         private void ShowAllEmployeeButton_Click(object sender, EventArgs e)
         {
@@ -206,61 +163,67 @@ namespace WindowsFormsApp3
             SqlConnection mysqlconnection = new SqlConnection();
             mysqlconnection.ConnectionString = "Data Source = PRAJWOLPC;database = Pioneer_Employee_Database1;Integrated security = SSPI";
 
-           
-                SqlCommand cmdE = new SqlCommand("SELECT * FROM EmployeeDetail WHERE EmployeeId = " + EmployeeId, mysqlconnection);
-                SqlCommand cmdC = new SqlCommand("SELECT * FROM CompanyDetail WHERE EmployeeId = " + EmployeeId, mysqlconnection);
-                SqlCommand cmdP = new SqlCommand("SELECT * FROM ProjectDetail WHERE EmployeeId = " + EmployeeId, mysqlconnection);
+            SqlCommand cmdE = new SqlCommand("SELECT * FROM EmployeeDetail WHERE EmployeeId = " + EmployeeId, mysqlconnection);
+            SqlCommand cmdC = new SqlCommand("SELECT * FROM CompanyDetail WHERE EmployeeId = " + EmployeeId, mysqlconnection);
+            SqlCommand cmdP = new SqlCommand("SELECT * FROM ProjectDetail WHERE EmployeeId = " + EmployeeId, mysqlconnection);
 
-                mysqlconnection.Open();
+            mysqlconnection.Open();
+            SqlDataReader DrE = cmdE.ExecuteReader();
 
-                SqlDataReader DrE = cmdE.ExecuteReader();
+            if (DrE.HasRows == true)
+            {
                 BindingSource sourceE = new BindingSource();
                 sourceE.DataSource = DrE;
                 EmployeeDataGridView.DataSource = sourceE;
-                DrE.Close();
+            }
+            else
+            {
+                EmployeeDataGridView.DataSource = null;
+                MessageBox.Show("No data to show for Employee");
+               
+            }
+            DrE.Close();
 
                 
-                
-
-                //int check = cmdC.ExecuteNonQuery();
+              
            
                  SqlDataReader DrC = cmdC.ExecuteReader();
-                if (DrC.HasRows ==true)
-                {
-                    
-                    BindingSource sourceC = new BindingSource();
-                    sourceC.DataSource = DrC;
-                    
-                    CompanyDataGridView.DataSource = sourceC;
-                }
-                else
-                    MessageBox.Show("No data to show for Company");
-            DrC.Close();
+            if (DrC.HasRows == true)
+            {
+
+                BindingSource sourceC = new BindingSource();
+                sourceC.DataSource = DrC;
+
+                CompanyDataGridView.DataSource = sourceC;
+            }
+            else
+            {
+                CompanyDataGridView.DataSource = null;
+                MessageBox.Show("No data to show for Company");
+            }
+                DrC.Close();
 
 
-
-
-            //int check2 = cmdC.ExecuteNonQuery();
+            
             SqlDataReader DrP = cmdP.ExecuteReader();
 
-                if (DrP.HasRows == true)
-                {
-                
+            if (DrP.HasRows == true)
+            {
+
                 BindingSource sourceP = new BindingSource();
-                    sourceP.DataSource = DrP;
-                    ProjectDataGridView.DataSource = sourceP;
-                }
-                else
-                    MessageBox.Show("No data to show for Project");
+                sourceP.DataSource = DrP;
+                ProjectDataGridView.DataSource = sourceP;
+            }
+            else
+            {
+                ProjectDataGridView.DataSource = null;
+                MessageBox.Show("No data to show for Project");
+
+            }
             DrP.Close();
 
-
-
-            //ProjectDataGridView.DataSource = sourceP;
-
             mysqlconnection.Close();
-
-           
+            
 
         }
 
@@ -271,77 +234,61 @@ namespace WindowsFormsApp3
 
         private void CompanyDetailsSaveButton_Click(object sender, EventArgs e)
         {
-            string EmployerName = EmployerNameTextBox.Text;
-            long EmployerContactNumber = Convert.ToInt64(EmployerContactNumberTextBox.Text);
-            string EmployerAddress = EmployerLocationTextBox.Text;
-            string Website = EmployerWebsiteTextBox.Text;
-            int EmployeeId = Convert.ToInt32(Employee_CompanyComboBox.Text);
+            
+            CompanyModel companyModel = new CompanyModel()
+            {
+                EmployerName = EmployerNameTextBox.Text,
+                EmployerContactNumber = Convert.ToInt64(EmployerContactNumberTextBox.Text),
+                EmployerAddress = EmployerLocationTextBox.Text,
+                Website = EmployerWebsiteTextBox.Text,
+                EmployeeId = Convert.ToInt32(Employee_CompanyComboBox.Text)
+
+            };
 
             EmployeeDataAccessLayer EmployeeDAL = new EmployeeDataAccessLayer();
 
-            int NoOfRowsAffected = EmployeeDAL.SaveCompanyData(EmployerName, EmployerContactNumber, EmployerAddress, Website, EmployeeId);
+            int NoOfRowsAffected = EmployeeDAL.SaveCompanyData(companyModel);
             if (NoOfRowsAffected > 0)
-                MessageBox.Show("Succesfully saved");
+                MessageBox.Show("Succesfully saved Company Detail");
             else
                 MessageBox.Show("Could Not Save");
 
-
-
-            MessageBox.Show("Your Data has been saved into the Company Detail database");
-
-
-        }
-
-        private void label27_Click(object sender, EventArgs e)
-        {
-
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string UI = UITextBox.Text;
-            string ProgrammingLanguage = ProgrammingLanguageTextBox.Text;
-            string DatabaseName = DatabaseTextBox.Text;
-            int EmployeeId = Convert.ToInt32(Employee_TechnicalComboBox.Text);
+            
+            TechnicalModel technicalModel = new TechnicalModel()
+            {
+                UI = UITextBox.Text,
+                ProgrammingLanguage = ProgrammingLanguageTextBox.Text,
+                DatabaseName = DatabaseTextBox.Text,
+                EmployeeId = Convert.ToInt32(Employee_TechnicalComboBox.Text)
 
+            };
             EmployeeDataAccessLayer EmployeeDAL = new EmployeeDataAccessLayer();
 
-            int NoOfRowsAffected = EmployeeDAL.SaveTechnicalData(UI, ProgrammingLanguage, DatabaseName, EmployeeId);
+            int NoOfRowsAffected = EmployeeDAL.SaveTechnicalData(technicalModel);
             if (NoOfRowsAffected > 0)
-                MessageBox.Show("Succesfully saved");
+                MessageBox.Show("Succesfully saved to Technical Detail");
             else
                 MessageBox.Show("Could Not Save");
 
-
-
-            MessageBox.Show("Your Datas has been saved into the Technical Detail database");
-
         }
 
-        private void label25_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
 
         }
 
-        private void label26_Click(object sender, EventArgs e)
-        {
-
-        }
-
+      
         private void textBox2_TextChanged_1(object sender, EventArgs e)
         {
 
         }
 
-        private void label28_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
@@ -358,11 +305,7 @@ namespace WindowsFormsApp3
 
         }
 
-        private void label29_Click(object sender, EventArgs e)
-        {
-
-        }
-
+     
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
 
@@ -370,22 +313,23 @@ namespace WindowsFormsApp3
 
         private void EducationDetailSaveButton_Click(object sender, EventArgs e)
         {
-            string CourseType = CourseTextBox.Text;
-            int YearOfPass= Convert.ToInt32(YearOfPassTextBox.Text);
-            string CourseSpecialization = CourseSpecializationTextBox.Text;
+            
+            EducationModel educationModel = new EducationModel
+            {
+                CourseType = CourseTextBox.Text,
+                YearOfPass = YearOfPassTextBox.Text,
+                CourseSpecialization = CourseSpecializationTextBox.Text,
+                EmployeeId = Convert.ToInt32(Employee_EducationComboBox.Text)
 
-            int EmployeeId = Convert.ToInt32(Employee_EducationComboBox.Text);
+            };
 
             EmployeeDataAccessLayer EmployeeDAL = new EmployeeDataAccessLayer();
-
-            int NoOfRowsAffected = EmployeeDAL.SaveEducationData(CourseType, YearOfPass, CourseSpecialization, EmployeeId);
+            int NoOfRowsAffected = EmployeeDAL.SaveEducationData(educationModel);
             if (NoOfRowsAffected > 0)
-                MessageBox.Show("Succesfully saved");
+                MessageBox.Show("Succesfully saved to Education Detail");
             else
                 MessageBox.Show("Could Not Save");
-
-
-            MessageBox.Show("Your Datas has been saved into the Technical Detail database");
+            
         }
 
         private void EmployeeComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -393,13 +337,7 @@ namespace WindowsFormsApp3
             
            
         }
-
-        private void DropDownButton_Click(object sender, EventArgs e)
-        {
-
-           
-        }
-
+             
         private void ProjectDetailClearButton_Click(object sender, EventArgs e)
         {
             ClearButton(ProjectDetailTab.Controls);

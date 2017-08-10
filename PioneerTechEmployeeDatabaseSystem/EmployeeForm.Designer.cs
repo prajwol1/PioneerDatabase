@@ -101,6 +101,7 @@
             this.CourseTextBox = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.DashBoardComboBox = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -110,7 +111,6 @@
             this.CompanyDataGridView = new System.Windows.Forms.DataGridView();
             this.ProjectDataGridView = new System.Windows.Forms.DataGridView();
             this.EmployeeDataGridView = new System.Windows.Forms.DataGridView();
-            this.DashBoardComboBox = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.EmployeeDetailTab.SuspendLayout();
             this.ProjectDetailTab.SuspendLayout();
@@ -168,7 +168,6 @@
             this.EmployeeDetailTab.Size = new System.Drawing.Size(681, 477);
             this.EmployeeDetailTab.TabIndex = 0;
             this.EmployeeDetailTab.Text = "Employee Details";
-            this.EmployeeDetailTab.Click += new System.EventHandler(this.EmployeeDetailTab_Click);
             // 
             // EmployeeDetailsClearButton
             // 
@@ -214,7 +213,6 @@
             this.label11.Size = new System.Drawing.Size(74, 13);
             this.label11.TabIndex = 17;
             this.label11.Text = "Home Country";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // HomeCountryTextBox
             // 
@@ -295,7 +293,6 @@
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Mobile Number";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // MobileNumberTextBox
             // 
@@ -328,7 +325,6 @@
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Last Name";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // LastNameTextBox
             // 
@@ -336,7 +332,6 @@
             this.LastNameTextBox.Name = "LastNameTextBox";
             this.LastNameTextBox.Size = new System.Drawing.Size(168, 20);
             this.LastNameTextBox.TabIndex = 2;
-            this.LastNameTextBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label1
             // 
@@ -346,7 +341,6 @@
             this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "First Name";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // FirstNameTextBox
             // 
@@ -354,7 +348,6 @@
             this.FirstNameTextBox.Name = "FirstNameTextBox";
             this.FirstNameTextBox.Size = new System.Drawing.Size(168, 20);
             this.FirstNameTextBox.TabIndex = 0;
-            this.FirstNameTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // ProjectDetailTab
             // 
@@ -479,7 +472,6 @@
             this.label15.Size = new System.Drawing.Size(65, 13);
             this.label15.TabIndex = 13;
             this.label15.Text = "Employee Id";
-            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // CompanyDetailTab
             // 
@@ -658,7 +650,6 @@
             this.label26.Size = new System.Drawing.Size(53, 13);
             this.label26.TabIndex = 43;
             this.label26.Text = "Database";
-            this.label26.Click += new System.EventHandler(this.label26_Click);
             // 
             // DatabaseTextBox
             // 
@@ -676,7 +667,6 @@
             this.label27.Size = new System.Drawing.Size(119, 13);
             this.label27.TabIndex = 41;
             this.label27.Text = "Programming Language";
-            this.label27.Click += new System.EventHandler(this.label27_Click);
             // 
             // ProgrammingLanguageTextBox
             // 
@@ -694,7 +684,6 @@
             this.label28.Size = new System.Drawing.Size(18, 13);
             this.label28.TabIndex = 39;
             this.label28.Text = "UI";
-            this.label28.Click += new System.EventHandler(this.label28_Click);
             // 
             // UITextBox
             // 
@@ -712,7 +701,6 @@
             this.label29.Size = new System.Drawing.Size(65, 13);
             this.label29.TabIndex = 37;
             this.label29.Text = "Employee Id";
-            this.label29.Click += new System.EventHandler(this.label29_Click);
             // 
             // EducationDetailTab
             // 
@@ -837,6 +825,14 @@
             this.tabPage1.TabIndex = 5;
             this.tabPage1.Text = "Dash Board";
             // 
+            // DashBoardComboBox
+            // 
+            this.DashBoardComboBox.FormattingEnabled = true;
+            this.DashBoardComboBox.Location = new System.Drawing.Point(151, 20);
+            this.DashBoardComboBox.Name = "DashBoardComboBox";
+            this.DashBoardComboBox.Size = new System.Drawing.Size(121, 21);
+            this.DashBoardComboBox.TabIndex = 10;
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -919,15 +915,6 @@
             this.EmployeeDataGridView.Name = "EmployeeDataGridView";
             this.EmployeeDataGridView.Size = new System.Drawing.Size(644, 101);
             this.EmployeeDataGridView.TabIndex = 0;
-            this.EmployeeDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // DashBoardComboBox
-            // 
-            this.DashBoardComboBox.FormattingEnabled = true;
-            this.DashBoardComboBox.Location = new System.Drawing.Point(151, 20);
-            this.DashBoardComboBox.Name = "DashBoardComboBox";
-            this.DashBoardComboBox.Size = new System.Drawing.Size(121, 21);
-            this.DashBoardComboBox.TabIndex = 10;
             // 
             // Employee_Form
             // 

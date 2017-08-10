@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Pioneer.Database.Model">
+      <HintPath>..\Pioneer.Database.Model\bin\Debug\Pioneer.Database.Model.dll</HintPath>
+    </Reference>
     <Reference Include="PioneerEmployeeDatabase.DAL">
       <HintPath>..\PioneerEmployeeDatabase.DAL\bin\Debug\PioneerEmployeeDatabase.DAL.dll</HintPath>
     </Reference>

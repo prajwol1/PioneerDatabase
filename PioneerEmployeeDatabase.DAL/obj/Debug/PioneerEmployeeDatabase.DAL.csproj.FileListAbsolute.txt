@@ -3,3 +3,5 @@ C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerE
 C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerEmployeeDatabase.DAL\bin\Debug\PioneerEmployeeDatabase.DAL.pdb
 C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerEmployeeDatabase.DAL\obj\Debug\PioneerEmployeeDatabase.DAL.dll
 C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerEmployeeDatabase.DAL\obj\Debug\PioneerEmployeeDatabase.DAL.pdb
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerEmployeeDatabase.DAL\bin\Debug\Pioneer.Database.Model.dll
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerEmployeeDatabase.DAL\bin\Debug\Pioneer.Database.Model.pdb

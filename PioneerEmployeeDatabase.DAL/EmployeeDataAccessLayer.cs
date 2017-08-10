@@ -4,21 +4,22 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Pioneer.Database.Model;
 
 namespace PioneerEmployeeDatabase.DAL
 {
     public class EmployeeDataAccessLayer
     {
-        public int SaveEmployeeData(string FirstName, string LastName,string EmailId, long MobileNumber,long AlternateMobileNumber, string Address1, string Address2, string CurrentCountry, string HomeCountry,int ZipCode)
+        public int SaveEmployeeData(EmployeeModel model)
         {
             int result;
             SqlConnection mysqlconnection = new SqlConnection();
             mysqlconnection.ConnectionString = "Data Source = PRAJWOLPC;database = Pioneer_Employee_Database1;Integrated security = SSPI";
 
             SqlCommand cmd = new SqlCommand("INSERT INTO EmployeeDetail VALUES(" +
-                            "'" + FirstName + "','" + LastName + "','" + EmailId + "'," +
-                            MobileNumber + "," + AlternateMobileNumber + ",'" + Address1 + "','" + Address2 +
-                            "','" + CurrentCountry + "','" + HomeCountry + "'," + ZipCode + ")", mysqlconnection);
+                            "'" + model.FirstName + "','" + model.LastName + "','" + model.EmailId + "'," +
+                            model.MobileNumber + "," + model.AlternateMobileNumber + ",'" + model.Address1 + "','" + model.Address2 +
+                            "','" + model.CurrentCountry + "','" + model.HomeCountry + "'," + model.ZipCode + ")", mysqlconnection);
             //Opening Sql Database Connection
             
             mysqlconnection.Open();
@@ -31,14 +32,14 @@ namespace PioneerEmployeeDatabase.DAL
 
 
 
-        public int SaveProjectData(string ProjectName, string ClientName, string Location, string Roles, int EmployeeId)
+        public int SaveProjectData(ProjectModel model)
         {
             int result;
             SqlConnection mysqlconnection = new SqlConnection();
             mysqlconnection.ConnectionString = "Data Source = PRAJWOLPC;database = Pioneer_Employee_Database1;Integrated security = SSPI";
 
             SqlCommand cmd = new SqlCommand("INSERT INTO ProjectDetail VALUES(" +
-                            "'" + ProjectName + "','" + ClientName + "','" + Location + "','" + Roles + "'," + EmployeeId + ")", mysqlconnection);
+                            "'" + model.ProjectName + "','" + model.ClientName + "','" + model.Place + "','" + model.Role + "'," + model.EmployeeId + ")", mysqlconnection);
             //Opening Sql Database Connection
 
             mysqlconnection.Open();
@@ -49,26 +50,26 @@ namespace PioneerEmployeeDatabase.DAL
             return result;
         }
 
-        public int SaveCompanyData(string EmployerName, long EmployerContactNumber, string EmployerAddress, string Website, int EmployeeId)
+        public int SaveCompanyData(CompanyModel model)
         {
             int result;
             SqlConnection mysqlconnection = new SqlConnection();
             mysqlconnection.ConnectionString = "Data Source = PRAJWOLPC;database = Pioneer_Employee_Database1;Integrated security = SSPI";
 
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO CompanyDetail VALUES('" + EmployerName + "'," + EmployerContactNumber + ",'" + EmployerAddress + "','" + Website + "'," + EmployeeId + ")", mysqlconnection);
+            SqlCommand cmd = new SqlCommand("INSERT INTO CompanyDetail VALUES('" + model.EmployerName + "'," + model.EmployerContactNumber + ",'" + model.EmployerAddress + "','" + model.Website + "'," + model.EmployeeId + ")", mysqlconnection);
             mysqlconnection.Open();
             result = cmd.ExecuteNonQuery();
             return result;
         }
 
-        public int SaveTechnicalData(string UI, string ProgrammingLanguage, string DatabaseName, int EmployeeId)
+        public int SaveTechnicalData(TechnicalModel model)
         {
             int result;
             SqlConnection mysqlconnection = new SqlConnection();
             mysqlconnection.ConnectionString = "Data Source = PRAJWOLPC;database = Pioneer_Employee_Database1;Integrated security = SSPI";
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO TechnicalDetail VALUES('" + UI + "','" + ProgrammingLanguage + "','" + DatabaseName + "'," + EmployeeId + ")", mysqlconnection);
+            SqlCommand cmd = new SqlCommand("INSERT INTO TechnicalDetail VALUES('" + model.UI + "','" + model.ProgrammingLanguage + "','" + model.DatabaseName + "'," + model.EmployeeId + ")", mysqlconnection);
             
             mysqlconnection.Open();
             result = cmd.ExecuteNonQuery();
@@ -77,13 +78,13 @@ namespace PioneerEmployeeDatabase.DAL
 
         
 
-        public int SaveEducationData(string CourseType, int YearOfPass, string CourseSpecialization, int EmployeeId)
+        public int SaveEducationData(EducationModel model)
         {
             int result;
             SqlConnection mysqlconnection = new SqlConnection();
             mysqlconnection.ConnectionString = "Data Source = PRAJWOLPC;database = Pioneer_Employee_Database1;Integrated security = SSPI";
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO EducationDetail VALUES('" + CourseType + "'," + YearOfPass + ",'" + CourseSpecialization + "'," + EmployeeId + ")", mysqlconnection);
+            SqlCommand cmd = new SqlCommand("INSERT INTO EducationDetail VALUES('" + model.CourseType + "'," + model.YearOfPass + ",'" + model.CourseSpecialization + "'," + model.EmployeeId + ")", mysqlconnection);
 
             mysqlconnection.Open();
             result = cmd.ExecuteNonQuery();
@@ -91,6 +92,11 @@ namespace PioneerEmployeeDatabase.DAL
         }
 
 
+        public void DashBoardDisplay()
+        {
+
+
+        }
     }
 
 
