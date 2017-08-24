@@ -1,0 +1,10 @@
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabaseSystem\Pioneer.WcfService\bin\Pioneer.WcfService.dll.config
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabaseSystem\Pioneer.WcfService\bin\Pioneer.WcfService.dll
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabaseSystem\Pioneer.WcfService\bin\Pioneer.WcfService.pdb
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabaseSystem\Pioneer.WcfService\bin\PioneerEmployeeDatabase.DAL.dll
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabaseSystem\Pioneer.WcfService\bin\Pioneer.Database.Model.dll
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabaseSystem\Pioneer.WcfService\bin\PioneerEmployeeDatabase.DAL.pdb
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabaseSystem\Pioneer.WcfService\bin\Pioneer.Database.Model.pdb
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabaseSystem\Pioneer.WcfService\obj\Debug\Pioneer.WcfService.csprojResolveAssemblyReference.cache
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabaseSystem\Pioneer.WcfService\obj\Debug\Pioneer.WcfService.dll
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabaseSystem\Pioneer.WcfService\obj\Debug\Pioneer.WcfService.pdb

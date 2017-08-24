@@ -33,3 +33,5 @@ C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerT
 C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabaseSystem\obj\Debug\PioneerTechEMS.pdb
 C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabaseSystem\bin\Debug\Pioneer.Database.Model.dll
 C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabaseSystem\bin\Debug\Pioneer.Database.Model.pdb
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabaseSystem\bin\Debug\log4net.dll
+C:\Users\Prajwol\Documents\Visual Studio 2017\Projects\WindowsFormsApp3\PioneerTechEmployeeDatabaseSystem\bin\Debug\log4net.xml

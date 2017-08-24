@@ -57,9 +57,14 @@ namespace WindowsFormsApp3
 
                 };
 
-                EmployeeDataAccessLayer EmployeeDAL = new EmployeeDataAccessLayer();
+                //EmployeeDataAccessLayer EmployeeDAL = new EmployeeDataAccessLayer();
+                // Service1 service = new Service1();
 
-                int NoOfRowsAffected = EmployeeDAL.SaveEmployeeData(employeeModel);
+                PioneerTechEMS.ServiceReference1.Service1Client serviceReferenceClient = new PioneerTechEMS.ServiceReference1.Service1Client();
+
+                int NoOfRowsAffected = serviceReferenceClient.SaveEmployeeData(employeeModel);
+
+               // int NoOfRowsAffected = EmployeeDAL.SaveEmployeeData(employeeModel);
                 if (NoOfRowsAffected > 0)
                     MessageBox.Show("Succesfully saved in Employee Detail");
                 else
@@ -158,73 +163,77 @@ namespace WindowsFormsApp3
 
         private void ShowDetailsButton_Click(object sender, EventArgs e)
         {
-            int EmployeeId = Convert.ToInt32(DashBoardComboBox.Text);
-
-            SqlConnection mysqlconnection = new SqlConnection();
-            mysqlconnection.ConnectionString = "Data Source = PRAJWOLPC;database = Pioneer_Employee_Database1;Integrated security = SSPI";
-
-            SqlCommand cmdE = new SqlCommand("SELECT * FROM EmployeeDetail WHERE EmployeeId = " + EmployeeId, mysqlconnection);
-            SqlCommand cmdC = new SqlCommand("SELECT * FROM CompanyDetail WHERE EmployeeId = " + EmployeeId, mysqlconnection);
-            SqlCommand cmdP = new SqlCommand("SELECT * FROM ProjectDetail WHERE EmployeeId = " + EmployeeId, mysqlconnection);
-
-            mysqlconnection.Open();
-            SqlDataReader DrE = cmdE.ExecuteReader();
-
-            if (DrE.HasRows == true)
-            {
-                BindingSource sourceE = new BindingSource();
-                sourceE.DataSource = DrE;
-                EmployeeDataGridView.DataSource = sourceE;
-            }
+            if (DashBoardComboBox.Text == "")
+                MessageBox.Show("Select Employee ID");
             else
             {
-                EmployeeDataGridView.DataSource = null;
-                MessageBox.Show("No data to show for Employee");
-               
-            }
-            DrE.Close();
+                int EmployeeId = Convert.ToInt32(DashBoardComboBox.Text);
 
-                
-              
-           
-                 SqlDataReader DrC = cmdC.ExecuteReader();
-            if (DrC.HasRows == true)
-            {
+                SqlConnection mysqlconnection = new SqlConnection();
+                mysqlconnection.ConnectionString = "Data Source = PRAJWOLPC;database = Pioneer_Employee_Database1;Integrated security = SSPI";
 
-                BindingSource sourceC = new BindingSource();
-                sourceC.DataSource = DrC;
+                SqlCommand cmdE = new SqlCommand("SELECT * FROM EmployeeDetail WHERE EmployeeId = " + EmployeeId, mysqlconnection);
+                SqlCommand cmdC = new SqlCommand("SELECT * FROM CompanyDetail WHERE EmployeeId = " + EmployeeId, mysqlconnection);
+                SqlCommand cmdP = new SqlCommand("SELECT * FROM ProjectDetail WHERE EmployeeId = " + EmployeeId, mysqlconnection);
 
-                CompanyDataGridView.DataSource = sourceC;
-            }
-            else
-            {
-                CompanyDataGridView.DataSource = null;
-                MessageBox.Show("No data to show for Company");
-            }
+                mysqlconnection.Open();
+                SqlDataReader DrE = cmdE.ExecuteReader();
+
+                if (DrE.HasRows == true)
+                {
+                    BindingSource sourceE = new BindingSource();
+                    sourceE.DataSource = DrE;
+                    EmployeeDataGridView.DataSource = sourceE;
+                }
+                else
+                {
+                    EmployeeDataGridView.DataSource = null;
+                    MessageBox.Show("No data to show for Employee");
+
+                }
+                DrE.Close();
+
+
+
+
+                SqlDataReader DrC = cmdC.ExecuteReader();
+                if (DrC.HasRows == true)
+                {
+
+                    BindingSource sourceC = new BindingSource();
+                    sourceC.DataSource = DrC;
+
+                    CompanyDataGridView.DataSource = sourceC;
+                }
+                else
+                {
+                    CompanyDataGridView.DataSource = null;
+                    MessageBox.Show("No data to show for Company");
+                }
                 DrC.Close();
 
 
-            
-            SqlDataReader DrP = cmdP.ExecuteReader();
 
-            if (DrP.HasRows == true)
-            {
+                SqlDataReader DrP = cmdP.ExecuteReader();
 
-                BindingSource sourceP = new BindingSource();
-                sourceP.DataSource = DrP;
-                ProjectDataGridView.DataSource = sourceP;
+                if (DrP.HasRows == true)
+                {
+
+                    BindingSource sourceP = new BindingSource();
+                    sourceP.DataSource = DrP;
+                    ProjectDataGridView.DataSource = sourceP;
+                }
+                else
+                {
+                    ProjectDataGridView.DataSource = null;
+                    MessageBox.Show("No data to show for Project");
+
+                }
+                DrP.Close();
+
+                mysqlconnection.Close();
+
             }
-            else
-            {
-                ProjectDataGridView.DataSource = null;
-                MessageBox.Show("No data to show for Project");
-
-            }
-            DrP.Close();
-
-            mysqlconnection.Close();
-            
-
         }
 
         private void DashBoardEmployeeIdTextBox_TextChanged(object sender, EventArgs e)
